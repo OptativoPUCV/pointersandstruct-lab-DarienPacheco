@@ -14,12 +14,14 @@ y en c almacena el valor de la suma de a más b.
 void suma(int a, int b, int * c) {
   
   *c = a + b;
+
 }
 
 /*
 Esta función suma los N primeros números del arreglo a
 */
 int sumaN(int a[], int N) {
+
     int i;
     int tot = 0;
 
@@ -76,14 +78,18 @@ correspondiente para el arreglo con `n` datos
 inicializados en 0 y luego retorna el vector creado.
 */
 typedef struct {
-   int * datos; // arreglo dinámico
-   int capacidad; // capacidad del arreglo
+
+  int * datos; // arreglo dinámico
+  int capacidad; // capacidad del arreglo
+
 } Vector;
 
 Vector * crearVector(int n) {
+
   Vector* Vector2 = (Vector*) calloc(n, sizeof(int));
   Vector2 ->capacidad =n;
   Vector2 ->datos = (int*) calloc(n, sizeof(int));
+
    return Vector2;
 
 }
@@ -94,9 +100,10 @@ Programe la función void asignarValor(Vector * v, int i, int valor),
 la cual asigna el valor a la posición i del vector v.
 */
 void asignarValor(Vector * v, int i, int valor) {
+
+
   v->datos[i] = valor;
 }
-
 /*
 Ejercicio 6.
 Programe la función int obtenerValor(Vector * v, int i), 
@@ -105,6 +112,7 @@ la cual retorna el valor en la posición i del vector v.
 int obtenerValor(Vector * v, int i) {
   
    return v->datos[i];
+
 }
 
 /*
@@ -131,4 +139,12 @@ sumar (a1,a2)+(b1+b2). Almacene el resultado en el vector c.
 */
 void sumaV2(int a1, int a2, int b1, int b2, Vector *c){
 
+  Vector* vectorNuevo1 = crearVector(2);
+  Vector* vectorNuevo2 = crearVector(2);
+  asignarValor(vectorNuevo1, 0, a1);
+  asignarValor(vectorNuevo1, 1, a2);
+  asignarValor(vectorNuevo2, 0, b1);
+  asignarValor(vectorNuevo2, 1, b2);
+
+  sumaV(vectorNuevo1, vectorNuevo2 ,c);
 }
